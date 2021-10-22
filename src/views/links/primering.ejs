@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('../partials/header') %>
+
+</head>
+<body>
+    <%- include('../partials/navigation') %>
+    <div class="container mt-4">
+        <form action="/primering" method="POST">
+            <div class="form-row">
+                <div class="form-group col-2">
+                    <h2>Mi perfil</h2>
+                    <img src="img/fotoperfil.jpg"
+                    class="card-img-top mx-auto m-2 rounded-circle " style="height: 150px; width: auto;" alt="Subir imagen">
+                </div>
+
+                
+                <div class="form-group col-md-8">
+                    <br>
+                    <br>
+                    <label for="">Nombre</label>
+                    <input  disabled type="text" class="form-control" id="" name="fullname" value="<%- user.fullname %>">   
+                    <label for="">Edad</label>
+                    <input type="text" class="form-control col-1" id="" name="edad"> 
+                </div>
+
+            </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="">Usuario</label>
+                        <input  disabled type="text" class="form-control" id="" value="<%- user.username %>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="">Correo</label>
+                        <input type="text" class="form-control" id="" name="correo">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="">Celular</label>
+                        <input type="text" class="form-control" id="" name="celular">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label for="">Direccion</label>
+                        <input type="text" class="form-control" id="" name="direccion">
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="">Estrato</label>
+                        <input type="text" class="form-control" id="" name="estrato">
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="">Localizacion</label>
+                        <select name="localizacion" class="form-control" id="" >
+
+                            <option value="Rural">Rural</option>
+                            <option value="Urbana" selected >Urbana</option>
+                        </select>
+                    </div>
+                </div>
+
+
+ 
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label for="">EPS</label>
+                        <select name="eps" class="form-control" id="">
+                            <option value="Mutual SER">Mutual SER</option>
+                            <option value="Salud Vida">Salud Vida</option>
+                            <option value="Particular">Particular</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="">Cedula</label>
+                        <input type="text"  class="form-control" id="" name="cedula">
+                    </div>
+
+                </div>
+
+<br>
+<label for=""">Complete toda la informacion requerida.</label>
+                <div class="form-row float-right">
+                    
+                    <button class="btn btn-primary" style="margin:5px">Continuar</button>
+                </div>
+                
+
+        </form>
+
+    </div>
+    <%- include('../partials/footer') %>
+</body>
+</html>

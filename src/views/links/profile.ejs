@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('../partials/header') %>
+
+</head>
+<body>
+    <%- include('../partials/navigation') %>
+    <div class="container mt-4">
+        <form action="">
+            <div class="form-row">
+                <div class="form-group col-2">
+                    <h2>Mi perfil</h2>
+                    <img src="img/fotoperfil.jpg"
+                    class="card-img-top mx-auto m-2 rounded-circle " style="height: 150px; width: auto;" alt="">
+                </div>
+
+                
+                <div class="form-group col-md-8">
+                    <br>
+                    <br>
+                    <label for="">Nombre</label>
+                    <input disabled type="text" class="form-control" id="" value="<%- user.fullname %>">   
+                    <label for="">Edad</label>
+                    <input  disabled type="text" class="form-control col-1" id="" value="<%- data.edad %>"> 
+                </div>
+
+            </div>
+
+                <div class="form-row">
+                    
+                    <div class="form-group col-md-4">
+                        <label for="">Usuario</label>
+                        <input  disabled type="text" class="form-control" id="" value="<%- data.username %>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="">Correo</label>
+                        <input type="text" class="form-control" id="" value="<%- data.correo %>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="">Celular</label>
+                        <input type="text" class="form-control" id="" value="<%- data.celular %>">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label for="">Direccion</label>
+                        <input type="text" class="form-control" id="" value="<%- data.direccion %>">
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="">Estrato</label>
+                        <input type="text" class="form-control" id="" value="<%- data.estrato %>">
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="">Localizacion</label>
+                        <select name="" class="form-control" id="">
+                            <option selected value="<%- data.localizacion %>"><%- data.localizacion %></option>
+                            <option value="">Rural</option>
+                            <option value="" selected >Urbana</option>
+                        </select>
+                    </div>
+                </div>
+
+
+ 
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label for="">EPS</label>
+                        <select class="form-control" id="">
+                            <option selected value="<%- data.eps %>"><%- data.eps %></option>
+                            <option value="">Mutual SER</option>
+                            <option value="">Salud Vida</option>
+                            <option value="">Particular</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="">Cedula</label>
+                        <input type="text" disabled class="form-control" id="" value="<%- data.cedula %>">
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="">Id</label>
+                        <input type="text" disabled class="form-control" id="" value="2389fjw8q72">
+                    </div>
+                </div>
+
+<br>
+                <div class="form-row float-right">
+                    <button class="btn btn-primary " style="margin:5px">Cambiar clave</button>
+                    <hr>
+                    <button class="btn btn-success" style="margin:5px">Save</button>
+                </div>
+                
+
+        </form>
+
+    </div>
+    <%- include('../partials/footer') %>
+</body>
+</html>
+
+
+
