@@ -7,20 +7,18 @@ const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
 const passport = require('passport')
 require('./lib/passport');
-
-const {database} = require('./keys');
+const dotenv = require('dotenv').config();
 
 // Settings
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine','ejs');
 
-// Midlewears
+// Middlewares
 app.use(flash());
 app.use(session({
-    secret: 'micodigosecreto',
+    secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: false,
-    store: new MySQLStore(database)
 }));
 
 app.use(morgan('dev'));
@@ -43,6 +41,6 @@ app.use((req, res, next) => {
 // Routes
 app.use(require('./routes'));
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log('servidor iniciado')
 });
