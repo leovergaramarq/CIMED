@@ -6,7 +6,7 @@ const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 
 
 router.get('/', (req, res) => {
-    res.render('index');
+    res.render('main');
 });
 
 router.get('/profile', isLoggedIn, (req, res) => {
