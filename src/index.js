@@ -7,15 +7,16 @@ const session = require('express-session');
 const passport = require('passport')
 const MySQLStore = require('express-mysql-session');
 require('./lib/passport');
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 const handlebars = require('express-handlebars');
+
 // Settings
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine','.hbs');
 app.engine('.hbs', handlebars({
     layoutsDir: __dirname + '/views/layouts',
     extname: '.hbs',
-    defaultLayout: 'index'
+    defaultLayout: 'main'
 }))
 
 // Middlewares
@@ -25,11 +26,12 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: new MySQLStore({
-	host: process.env.DATABASE_HOST,
-	user: process.env.DATABASE_USER,
-	password: process.env.DATABASE_PASSWORD,
-	database: process.env.DATABASE_NAME
-})
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
+} 
+)
 }));
 
 app.use(morgan('dev'));

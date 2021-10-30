@@ -6,7 +6,7 @@ const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 
 
 router.get('/', (req, res) => {
-    res.render('main');
+    res.render('index');
 });
 
 router.get('/profile', isLoggedIn, (req, res) => {
@@ -16,7 +16,7 @@ router.get('/profile', isLoggedIn, (req, res) => {
             pool.query('SELECT * FROM data WHERE id= ?', [req.user.id],(err, rows, fields) => {
                 if (err) reject(err); // En caso de error, resolvemos la Promise con error
                 console.log('leonardo')
-                res.render('links/profile',{data: rows[0]});
+                res.render('userSession/profile',{data: rows[0]});
             });
         } else {
             res.redirect('/primering')
@@ -30,7 +30,7 @@ router.get('/profile', isLoggedIn, (req, res) => {
 router.get('/miscitas', isLoggedIn, (req, res) => {
 
     pool.query('SELECT * FROM citas ', [req.user.id], (err, rows, fields) => {
-        res.render('links/miscitas', {citas: rows });
+        res.render('userSession/miscitas', {citas: rows });
     });
 });
 
@@ -50,7 +50,7 @@ router.get('/primering', isLoggedIn, (req, res) => {
         if(false) {
             res.redirect('/profile');
         } else {
-            res.render('links/primering');
+            res.render('userSession/primering');
         }
 
     });
