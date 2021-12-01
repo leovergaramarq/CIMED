@@ -1,0 +1,110 @@
+.modal {
+    // z-index: 10;
+    display: inline;
+
+    .modal-dialog {
+        min-width: min-content;
+
+        .modal-content {
+            width: 900px;
+            // z-index: 30;
+        
+            .modal-body {
+                padding: 18px;
+                display: grid;
+                grid-template-columns: 240px 1fr;
+
+                .modal-form {
+                    border-right: 1px solid rgb(230, 230, 230);
+                    // padding-right: 0 18px;
+                    
+                    &__group {
+                        padding: 10px 0;
+                        display: flex;
+                        flex-direction: column;
+
+                        input {
+                            border-radius: 4px;
+                        }
+                    }
+
+                    &__doc {
+                        margin-right: 18px;
+                    }
+
+                    &__date {
+                        width: min-content;
+                    }
+
+                    &__time {
+                        width: min-content;
+                    }
+
+                    &__submit {
+                        margin-top: 20px;
+                        width: 95%;
+                        text-align: center;
+
+                        button {
+                            width: inherit;
+                            // padding-right: 18px;
+                        }
+                    }
+
+                }
+
+                .modal-events {
+                    padding-left: 18px;
+                    display: grid;
+                    gap: 10px;
+                    grid-template-columns: 1fr 1fr;
+            
+                    &__item {
+                        // min-height: 60px;
+                        // min-width: 50px;
+                        height: min-content;
+                        padding: 12px 8px;
+                        border-radius: 10px;
+                        background: rgb(55, 136, 216);
+                        color: white;
+        
+                        &:hover {
+                            cursor: pointer;
+                            filter: brightness(0.85);
+                        }
+                    }
+        
+                    .sel {
+                        filter: brightness(0.85);
+                    }
+
+                }
+    
+            }
+    
+        }
+    }
+
+
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#mask {
+    // z-index: 20;
+    backdrop-filter: blur(2px);
+    transition: visibility 0s, opacity 0.5s ease-out;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.autocomplete {
+    position: relative;
+}

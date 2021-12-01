@@ -1,103 +1,63 @@
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
+<script src="js/autocomplete.js"></script>
 
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            eventClick: function(info) {
-                alert('Event: ' + info.event.title);
-                alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-                alert('View: ' + info.view.type);
+<div id="mask" class="hidden"></div>
 
-                // change the border color just for fun
-                info.el.style.borderColor = 'red';
-            },
-            headerToolbar: {
-                center: 'addEventButton'
-            },
-            customButtons: {
-                addEventButton: {
-                    text: 'Add new',
-                    click: function() {
-                        var dateStr = prompt('Enter a date in YYYY-MM-DD format');
-                        var date = new Date(dateStr + 'T00:00:00'); // will be in local time
-                        var end = new Date(dateStr + 'T00:30:00');
-                        if (!isNaN(date.valueOf())) { // valid?
-                            calendar.addEvent({
-                                title: 'dynamic event',
-                                start: date,
-                                end: end,
-                                allDay: false
-                            });
-                            alert('Great. Now, update your database...');
-                        } else {
-                            alert('Invalid date.');
-                        }
-                    }
-                }
-            },
-            initialView: 'dayGridMonth',
-            initialDate: '2021-11-07',
-            // headerToolbar: {
-                // left: 'prev,next today',
-                // center: 'title',
-                // right: 'dayGridMonth,timeGridWeek,timeGridDay'
-            // },
-            events: [
-                {
-                    title: 'All Day Event',
-                    start: '2021-11-01'
-                },
-                {
-                    title: 'Long Event',
-                    start: '2021-11-07',
-                    end: '2021-11-10'
-                },
-                {
-                    groupId: '999',
-                    title: 'Repeating Event',
-                    start: '2021-11-09T16:00:00'
-                },
-                {
-                    groupId: '999',
-                    title: 'Repeating Event',
-                    start: '2021-11-16T16:00:00'
-                },
-                {
-                    title: 'Conference',
-                    start: '2021-11-11',
-                    end: '2021-11-13'
-                },
-                {
-                    title: 'Meeting',
-                    start: '2021-11-12T10:30:00',
-                    end: '2021-11-12T12:30:00'
-                },
-                {
-                    title: 'Lunch',
-                    start: '2021-11-12T12:00:00'
-                },
-                {
-                    title: 'Meeting',
-                    start: '2021-11-12T14:30:00'
-                },
-                {
-                    title: 'Birthday Party',
-                    start: '2021-11-13T07:00:00'
-                },
-                {
-                    title: 'Click for Google',
-                    url: 'http://google.com/',
-                    start: '2021-11-28'
-                }
-            ]
-        });
+<div class="modal hidden" id="modal" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nueva cita</h5>
+            {{!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+        </div>
+        <div class="modal-body">
+            <div class="modal-form">
+                <form autocomplete="off">
+                    <div class="modal-form__group modal-form__doc autocomplete">
+                        <label for="input-doc">Doctor</label>
+                        <input name="doctor" type="text" id="input-doc">
+                    </div>
+                    <div class="modal-form__group modal-form__date">
+                        <label for="input-date">Fecha</label>
+                        <input name="date" type="date" id="input-date"/>
+                    </div>
+                    <div class="modal-form__group modal-form__time">
+                        <label for="input-time">Hora</label>
+                        <input name="time" type="time" id="input-time">
+                    </div>
+                    <div class="modal-form__submit">
+                        <button type="submit" class="btn btn-secondary">Filtrar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-events">
+                {{#each events}}
+                <div class="modal-events__item" ev_id={{this.id}}>
+                    <div class="row">
+                        <div class="col">
+                            <div class="modal-body__item__doc">{{this.doctor.name}}</div>
+                        </div>
+                        <div class="col">
+                            <div class="modal-body__item__date">{{this.date}}</div>
+                            <div class="modal-body__item__start">{{this.start}}</div>
+                            <div class="modal-body__item__end">{{this.end}}</div>
+                        </div>
+                    </div>
+                    <div class="modal-body__item__esp">{{this.doctor.esp}}</div>
+                    <div class="modal-body__item__place">{{this.place}}</div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary modal__dismiss" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary modal__confirm">Confirmar solicitud</button>
+        </div>
+        </div>
+    </div>
+</div>
 
-        calendar.render();
-    });
-</script>
+<script src="js/ncita.js"></script>
 
 <div style="margin: 40px;">
     <div id='calendar'></div>   
 </div>
-
-
