@@ -1,13 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const path = require('path');
 const flash = require('connect-flash');
 const session = require('express-session');
-const passport = require('passport')
+const passport = require('passport');
 const MySQLStore = require('express-mysql-session');
 require('./lib/passport');
-require('dotenv').config();
 const handlebars = require('express-handlebars');
 
 // Settings

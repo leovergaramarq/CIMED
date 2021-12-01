@@ -1,0 +1,58 @@
+<div >
+<form style="padding: 20px;" action="/admin" method="GET">
+  <div class="form-group">
+    <label for="">Name</label>
+    <input id="name" class="form-control" type="text" placeholder="Default input">
+  </div>
+  <div class="form-group">
+    <label for="">Date</label>
+    <input id="date" class="form-control" type="text" placeholder="Default input">
+  </div>
+  <div class="form-group">
+    <label for="">Doctor</label>
+    <input id="doctor" class="form-control" type="text" placeholder="Default input">
+  </div>
+  <button style="margin-left: 20px;" type="" class="btn btn-primary">Search</button>
+</form>
+
+
+</div>
+
+  <button style="margin-left: 20px;" type="" id="b_filtrar" class="btn btn-primary">Search</button>
+<div class="table-responsive p-4">
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Medico</th>
+                <th scope="col">Causa</th>
+                <th scope="col">Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each citas}}
+            <tr>
+                <th scope="row"> 1 </th>
+                <td>{{fecha}} </td>
+                <td>{{medico}}</td>
+                <td>{{causa}}</td>
+                <td class="text-center"><button class="btn btn-primary">Detalles</button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+
+
+   <script>
+    const button = document.getElementById('b_filtrar');
+    const name = document.getElementById('b_filtrar');
+    const date = document.getElementById('b_filtrar');
+    const doctor = document.getElementById('b_filtrar');
+
+    button.addEventListener('click', event => {
+
+});
+   </script>

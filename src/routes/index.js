@@ -29,9 +29,19 @@ router.get('/profile', isLoggedIn, (req, res) => {
 
 router.get('/miscitas', isLoggedIn, (req, res) => {
 
-    pool.query('SELECT * FROM citas ', [req.user.id], (err, rows, fields) => {
+    pool.query('SELECT * FROM citas WHERE id = ?', [req.user.id], (err, rows, fields) => {
         res.render('userSession/miscitas', {citas: rows });
     });
+});
+
+router.get('/ncita', isLoggedIn, (req, res) => {
+
+    res.render('userSession/ncita');
+});
+
+router.get('/admin', isLoggedIn, (req, res) => {
+
+    res.render('admin/filter');
 });
 
 
