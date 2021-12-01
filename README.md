@@ -35,3 +35,5 @@ Arch Linux
 
 
 ## Authors ✒️
+* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
+* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)

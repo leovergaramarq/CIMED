@@ -11,15 +11,15 @@
             </tr>
         </thead>
         <tbody>
-            <% for (var i = 0; i < citas.length; i++ ) { %>
+            {{#each citas}}
             <tr>
-                <th scope="row"> <%- i %> </th>
-                <td><%- citas[i].fecha %> </td>
-                <td><%- citas[i].medico %> </td>
-                <td><%- citas[i].causa %> </td>
+                <th scope="row"> 1 </th>
+                <td>{{fecha}} </td>
+                <td>{{medico}}</td>
+                <td>{{causa}}</td>
                 <td class="text-center"><button class="btn btn-primary">Detalles</button></td>
             </tr>
-            <% } %>
+            {{/each}}
         </tbody>
     </table>
 </div>

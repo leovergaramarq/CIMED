@@ -12,9 +12,9 @@
                 <br>
                 <br>
                 <label for="">Nombre</label>
-                <input disabled type="text" class="form-control" id="" value="<%- user.fullname %>">   
+                <input disabled type="text" class="form-control" id="" value="{{ user.fullname }}">   
                 <label for="">Edad</label>
-                <input  disabled type="text" class="form-control col-1" id="" value="<%- data.edad %>"> 
+                <input  disabled type="text" class="form-control col-1" id="" value="{{ data.edad }}"> 
             </div>
 
         </div>
@@ -23,30 +23,30 @@
 
             <div class="form-group col-md-4">
                 <label for="">Usuario</label>
-                <input  disabled type="text" class="form-control" id="" value="<%- data.username %>">
+                <input  disabled type="text" class="form-control" id="" value="{{data.username}}">
             </div>
             <div class="form-group col-md-4">
                 <label for="">Correo</label>
-                <input type="text" class="form-control" id="" value="<%- data.correo %>">
+                <input type="text" class="form-control" id="" value="{{ data.correo }}">
             </div>
             <div class="form-group col-md-4">
                 <label for="">Celular</label>
-                <input type="text" class="form-control" id="" value="<%- data.celular %>">
+                <input type="text" class="form-control" id="" value="{{ data.celular }}">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-4">
                 <label for="">Direccion</label>
-                <input type="text" class="form-control" id="" value="<%- data.direccion %>">
+                <input type="text" class="form-control" id="" value="{{ data.direccion }}">
             </div>
             <div class="form-group col-4">
                 <label for="">Estrato</label>
-                <input type="text" class="form-control" id="" value="<%- data.estrato %>">
+                <input type="text" class="form-control" id="" value="{{ data.estrato }}">
             </div>
             <div class="form-group col-4">
                 <label for="">Localizacion</label>
                 <select name="" class="form-control" id="">
-                    <option selected value="<%- data.localizacion %>"><%- data.localizacion %></option>
+                    <option selected value="{{ data.localizacion }}"><%- data.localizacion %></option>
                     <option value="">Rural</option>
                     <option value="" selected >Urbana</option>
                 </select>
@@ -59,7 +59,7 @@
             <div class="form-group col-4">
                 <label for="">EPS</label>
                 <select class="form-control" id="">
-                    <option selected value="<%- data.eps %>"><%- data.eps %></option>
+                    <option selected value="{{ data.eps }}">{{ data.eps }}</option>
                     <option value="">Mutual SER</option>
                     <option value="">Salud Vida</option>
                     <option value="">Particular</option>
@@ -68,7 +68,7 @@
             </div>
             <div class="form-group col-4">
                 <label for="">Cedula</label>
-                <input type="text" disabled class="form-control" id="" value="<%- data.cedula %>">
+                <input type="text" disabled class="form-control" id="" value="{{ data.cedula }}">
             </div>
             <div class="form-group col-4">
                 <label for="">Id</label>
