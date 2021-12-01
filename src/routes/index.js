@@ -31,16 +31,16 @@ router.post('/admin',isLoggedIn,(req,res)=>{
     const {name, date, doctor} = req.body;
     let consulta ="SELECT c.id, u.fullname as patientName, d.fullname as doctorName, c.causa, c.fechaCita FROM citas c JOIN users u ON	u.id=c.pacientID ";
     if (name) {
-        consulta+="and u.username=? ";
+        consulta+="and u.username='"+name+"' ";
     }
     consulta+="JOIN doctor d ON c.doctorID=d.id ";
     if (doctor) {
-        consulta+="and d.fullname=? ";
+        consulta+="and d.fullname='"+doctor+"' ";
     }
     if(date){
-        consulta+="WHERE DATE(c.fechaCita)=?";
+        consulta+="WHERE DATE(c.fechaCita)='"+date+"' ";
     }
-    pool.query(consulta, [name, date, doctor], (err, rows, fields) => {
+    pool.query(consulta, (err, rows, fields) => {
         res.render('admin/filter', {citas: rows });
     });
 
