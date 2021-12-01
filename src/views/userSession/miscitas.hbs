@@ -3,21 +3,19 @@
     <table class="table">
         <thead class="table-dark">
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Medico</th>
-                <th scope="col">Causa</th>
-                <th scope="col">Accion</th>
+                <th scope="col">ID appoiment</th>
+                <th scope="col">Doctor name</th>
+                <th scope="col">Cause</th>
+                <th scope="col">Date</th>
             </tr>
         </thead>
         <tbody>
             {{#each citas}}
             <tr>
-                <th scope="row"> 1 </th>
-                <td>{{fecha}} </td>
-                <td>{{medico}}</td>
+                <th scope="row"> {{id}} </th>
+                <td>{{doctorName}} </td>
                 <td>{{causa}}</td>
-                <td class="text-center"><button class="btn btn-primary">Detalles</button></td>
+                <td>{{fechaCita}}</td>
             </tr>
             {{/each}}
         </tbody>

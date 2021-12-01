@@ -35,5 +35,7 @@ Arch Linux
 
 
 ## Authors ✒️
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
+* **Leonardo Aguilera** - *Developer* - [leoar0810](https://github.com/leoar0810)
+* **Leonardo Vergara** - *Developer* - [vergaradl](https://github.com/vergaradl)
+* **Leonardo Lizcano** - *Developer* - [LeoLizc](https://github.com/leolizc)
+* **Breynner Hurtado** - *Developer* - [breynner1](https://github.com/breynner1)
