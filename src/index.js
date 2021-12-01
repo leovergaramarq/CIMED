@@ -4,23 +4,34 @@ const morgan = require('morgan');
 const path = require('path');
 const flash = require('connect-flash');
 const session = require('express-session');
-const MySQLStore = require('express-mysql-session');
 const passport = require('passport')
+const MySQLStore = require('express-mysql-session');
 require('./lib/passport');
-
-const {database} = require('./keys');
+require('dotenv').config();
+const handlebars = require('express-handlebars');
 
 // Settings
 app.set('views', path.join(__dirname, 'views'))
-app.set('view engine','ejs');
+app.set('view engine','.hbs');
+app.engine('.hbs', handlebars({
+    layoutsDir: __dirname + '/views/layouts',
+    extname: '.hbs',
+    defaultLayout: 'main'
+}))
 
-// Midlewears
+// Middlewares
 app.use(flash());
 app.use(session({
-    secret: 'micodigosecreto',
+    secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: false,
-    store: new MySQLStore(database)
+    store: new MySQLStore({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
+} 
+)
 }));
 
 app.use(morgan('dev'));
@@ -43,6 +54,6 @@ app.use((req, res, next) => {
 // Routes
 app.use(require('./routes'));
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log('servidor iniciado')
 });

@@ -1,8 +1,8 @@
 module.exports = {
     database: {
-        user: 'root',
-        password: 'leonardo08',
-        host: 'localhost',
-        database: 'database_links'
+        user: 'consejols',
+        password: 'projectdatabase2021col',
+        host: 'www.db4free.net',
+        database: 'project1db2021'
     }
 };

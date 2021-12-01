@@ -1,0 +1,25 @@
+
+<div class="table-responsive p-4">
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Medico</th>
+                <th scope="col">Causa</th>
+                <th scope="col">Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (var i = 0; i < citas.length; i++ ) { %>
+            <tr>
+                <th scope="row"> <%- i %> </th>
+                <td><%- citas[i].fecha %> </td>
+                <td><%- citas[i].medico %> </td>
+                <td><%- citas[i].causa %> </td>
+                <td class="text-center"><button class="btn btn-primary">Detalles</button></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
