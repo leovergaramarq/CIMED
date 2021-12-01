@@ -175,11 +175,16 @@ router.post('/primering', isLoggedIn, async(req, res) => {
         res.redirect('/profile');
     });
     //req.flash('success', 'Link saved successfully');
-
-    
-
 });
 
+router.post('/ncita', isLoggedIn, (req, res) => {
+    const {date, time} = req.body;
+    const fecha = date + ' ' + time + ':00';
+    pool.query("INSERT INTO `citas` (`id`, `pacientID`, `doctorID`, `causa`, `fechaCita`, `fechaRegistro`) VALUES (NULL, ?, (SELECT d.id from doctor d WHERE d.fullname=? limit 1), ?, ?, NULL);", [req.user.id, req.body.doctor, req.body.cause, fecha], (err, rows, fields) => {
+        if(err) console.log(err);
+        res.render('userSession/ncita');
+    });
+});
 
 router.get('/logout', isLoggedIn, (req, res) => {
     req.logOut();

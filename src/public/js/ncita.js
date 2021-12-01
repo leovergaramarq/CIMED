@@ -122,6 +122,8 @@
         end = new Date(date + hourToMilis(end)).toISOString();
         date = new Date(date).toISOString();
 
+        console.log(calendar);
+
         calendar.addEvent({
             title: esp,
             start, end,
@@ -144,21 +146,14 @@
         });
     })
 
-    
-    
     // Autocomplete
-    autocomplete(document.getElementById("input-doc"), ['Juan', 'Pedro', 'Juanita', 'Julián']);
+    autocomplete(document.getElementById("input-doc"), ['juanito perez', 'senior maya', 'juanito alcachofa']);
 
     // Submit form
     const $form = document.querySelector('.modal-form form');
-    // $form.addEventListener('submit', event => {
-    //     if(!$form.checkValidity()) {
-    //         event.preventDefault()
-    //         event.stopPropagation()
-    //     }
-    //     $form.classList.add('was-validated')
-    // }, false);
+    
     $form.addEventListener('submit', e => {
-        e.preventDefault();
+        closeModal();
+        // e.preventDefault();
     })
 })();

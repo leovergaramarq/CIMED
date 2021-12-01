@@ -11,10 +11,15 @@
         </div>
         <div class="modal-body">
             <div class="modal-form">
-                <form autocomplete="off">
+
+                <form autocomplete="off" action="/ncita" method="post">
                     <div class="modal-form__group modal-form__doc autocomplete">
                         <label for="input-doc">Doctor</label>
                         <input name="doctor" type="text" id="input-doc">
+                    </div>
+                    <div class="modal-form__group modal-form__cause autocomplete">
+                        <label for="input-cause">Causa</label>
+                        <input name="cause" type="text" id="input-cause">
                     </div>
                     <div class="modal-form__group modal-form__date">
                         <label for="input-date">Fecha</label>
