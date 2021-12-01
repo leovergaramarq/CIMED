@@ -27,9 +27,28 @@ router.get('/profile', isLoggedIn, (req, res) => {
 
 });
 
+router.post('/admin',isLoggedIn,(req,res)=>{
+    const {name, date, doctor} = req.body;
+    let consulta ="SELECT c.id, u.fullname as patientName, d.fullname as doctorName, c.causa, c.fechaCita FROM citas c JOIN users u ON	u.id=c.pacientID ";
+    if (name) {
+        consulta+="and u.username='"+name+"' ";
+    }
+    consulta+="JOIN doctor d ON c.doctorID=d.id ";
+    if (doctor) {
+        consulta+="and d.fullname='"+doctor+"' ";
+    }
+    if(date){
+        consulta+="WHERE DATE(c.fechaCita)='"+date+"' ";
+    }
+    pool.query(consulta, (err, rows, fields) => {
+        res.render('admin/filter', {citas: rows });
+    });
+
+});
+
 router.get('/miscitas', isLoggedIn, (req, res) => {
 
-    pool.query('SELECT * FROM citas WHERE id = ?', [req.user.id], (err, rows, fields) => {
+    pool.query('SELECT c.*, d.fullname as doctorName FROM citas c JOIN doctor d ON d.id=c.doctorID and c.pacientID=?', [req.user.id], (err, rows, fields) => {
         res.render('userSession/miscitas', {citas: rows });
     });
 });
@@ -139,11 +158,9 @@ router.post('/signin', isNotLoggedIn, (req, res, next) => {
 
 router.post('/primering', isLoggedIn, async(req, res) => {
     const { edad, correo, celular, direccion, estrato, localizacion, eps, cedula } = req.body;
-    const username = req.user.username;
     const id = req.user.id;
     const data = {
         id,
-        username,
         edad,
         correo, 
         celular, 
@@ -153,7 +170,8 @@ router.post('/primering', isLoggedIn, async(req, res) => {
         eps, 
         cedula
     };
-    pool.query('INSERT INTO data set ?', [data], () => {
+    pool.query('INSERT INTO data SET ?', [data], (err, result, fields) => {
+        if(err) throw err;
         res.redirect('/profile');
     });
     //req.flash('success', 'Link saved successfully');
