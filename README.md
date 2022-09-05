@@ -1,11 +1,6 @@
 # CIMED
 
-_Project description_
-
-## Starting 🚀
-
-_The following steps will allow you to make the project work._
-
+Minimum Viable Product of web-based service for medical appointments scheduling.
 
 ### Prerequisites 📋
 
@@ -23,7 +18,6 @@ Arch Linux
 
     pacman -S nodejs npm
     
-
 ### Installation 🔧
 #### Clone the repository
     git clone https://github.com/leoar0810/cimed
@@ -32,10 +26,8 @@ Arch Linux
 #### Start the server
     npm run dev
 
-
-
 ## Authors ✒️
 * **Leonardo Aguilera** - *Developer* - [leoar0810](https://github.com/leoar0810)
-* **Leonardo Vergara** - *Developer* - [vergaradl](https://github.com/vergaradl)
+* **Leonardo Vergara** - *Developer* - [leovergaramarq](https://github.com/leovergaramarq)
 * **Leonardo Lizcano** - *Developer* - [LeoLizc](https://github.com/leolizc)
 * **Breynner Hurtado** - *Developer* - [breynner1](https://github.com/breynner1)
